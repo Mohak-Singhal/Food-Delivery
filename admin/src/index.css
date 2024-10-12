@@ -21,12 +21,11 @@ hr{
 }
 .app-content{
   display: flex;
-  
-}
+  }
 .flex-col{
   display: flex;
   flex-direction: column;
-  gap:10px;
+  gap: 10px;
 
 }
 .cursor{

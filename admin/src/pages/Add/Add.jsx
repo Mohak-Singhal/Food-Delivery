@@ -42,7 +42,7 @@ const Add = () => {
       toast.error(response.data.message);
     }
   };
-
+  
   return (
     <div>
       <form className="add flex-col" onSubmit={onSubmitHandler}>
