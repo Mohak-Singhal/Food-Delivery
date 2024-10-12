@@ -31,3 +31,6 @@
     color: white;
     cursor: pointer;
 }
+.add-btn:hover{
+    opacity: 0.8;
+}
