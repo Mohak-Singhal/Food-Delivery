@@ -1,9 +1,12 @@
+import "dotenv/config.js"
 import express from "express";
 import cors from "cors";
 import { connectDB } from "./config/db.js";
 import foodRouter from "./routes/FoodRoutes.js";
 import userRouter from "./routes/userRoutes.js";
-import "dotenv/config.js"
+import cartRouter from "./routes/CartRoute.js";
+import ordrderRouter from "./routes/OrderRoute.js";
+
 
 // App configuration
 const app = express();
@@ -18,6 +21,9 @@ connectDB();
 app.use("/api/food", foodRouter);
 app.use("/images",express.static('uploads'))
 app.use("/api/user",userRouter)
+app.use("/api/cart",cartRouter)
+app.use("/api/order",ordrderRouter)
+
 
 // Routes
 app.get("/", (req, res) => {
@@ -28,4 +34,3 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
     console.log(`Server started on http://localhost:${port}`);
 });
-//mongodb+srv://reactapp:<password>@cluster0.7caqbeq.mongodb.net/?

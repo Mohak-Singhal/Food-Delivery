@@ -14,6 +14,7 @@ import AppDownload from '../../Components/AppDownload/AppDownload'
         <ExploreMenu category={category} setCategory={setCategory}/>
         <FoodDisplay category={category }/>
         <AppDownload/>
+        
        
      </div>
    ) 

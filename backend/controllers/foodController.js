@@ -4,30 +4,39 @@ import fs from "fs"
 
 
 //add food 
+
+
+// add food 
 const addFood = async (req, res) => {
-
-    // let image_filename = `${req.file.filename}`;
-
-   
-
-    const food = new foodModel ({
-        name:req.body.name,
-        description:req.body.description,
-        price:req.body.price,
-        category:req.body.category,
-        // image:image_filename
-    })
     try {
+        // Check if the file was uploaded by multer
+        if (!req.file) {
+            return res.status(400).json({ success: false, message: "Image upload failed, no file provided" });
+        }
+
+        // Access the file's filename
+        const image_filename = req.file.filename; // This will work if multer correctly processed the file
+
+        // Create a new food item and assign the image filename
+        const food = new foodModel({
+            name: req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            category: req.body.category,
+            image: image_filename // Store the filename in the database
+        });
+
+        // Save the food item to the database
         await food.save();
-        res.json({sucess:true,message:"Food Added"})
+        res.json({ success: true, message: "Food Added" });
+
     } catch (error) {
-        console.log(error)
-        res.json({sucess:false,message:"Error"})
-        
+        console.error("Error adding food:", error);
+        res.status(500).json({ success: false, message: "Error adding food" });
     }
+};
 
 
-}
 //all food list
 const listFood =async (req,res)=>{
     try {

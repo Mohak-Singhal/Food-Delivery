@@ -30,7 +30,13 @@
 .login-popup-title img{
     width:16px;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out;
 }
+.login-popup-title img:hover {
+    transform: scale(1.1); 
+    filter: brightness(1.2); 
+  }
+
 .login-popup-inputs{
     display: flex;
     flex-direction: column;
