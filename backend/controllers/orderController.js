@@ -10,13 +10,13 @@ const placeorder = async (req, res) => {
     const fronent_url= "http://localhost:5173/"
   try {
     const newOrder = new orderModel({
-      userId: response.body.userId,
-      items: response.body.items,
-      amount: response.body.amount,
-      address: response.body.address,
+      userId: req.body.userId,
+      items: req.body.items,
+      amount: req.body.amount,
+      address: req.body.address,
     });
     await newOrder.save();
-    await userModel.findByIdAndUpdate(response.body.userId, { cartData: {} });
+    await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
 
     const line_items = req.body.items.map((item) => ({
       price_data: {
@@ -28,7 +28,7 @@ const placeorder = async (req, res) => {
       },
       quantity: item.quantity,
     }));
-    line-items.push({
+    line_items.push({
         price_data:{
             currency:"inr",
             product_data:{

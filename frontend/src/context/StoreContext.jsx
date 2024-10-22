@@ -34,7 +34,7 @@ const StoreContextProvider = (props) => {
       );
     }
   };
-  const getTotalCartAmount = async () => {
+  const getTotalCartAmount =  () => {
     let totalAmount = 0;
     for (const itemId in cartItems) {
       if (cartItems[itemId] > 0) {
