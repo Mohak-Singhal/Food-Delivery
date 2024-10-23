@@ -7,9 +7,11 @@ const Header = () => {
       <div className="header-contents">
         <h2>Order Your Food here</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, vitae?
+        Order Your Food Here! Enjoy fresh, delicious meals delivered fast. From local favorites to new flavors, we’ve got something for everyone. Quick, easy, and tasty!
         </p>
-        <button>View Menu</button>
+        <a href="/#explore-menu">
+  <button>View Menu</button>
+</a>
       </div>
     </div>
   );
